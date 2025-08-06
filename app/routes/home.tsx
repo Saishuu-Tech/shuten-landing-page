@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router";
+import { useFetcher } from "react-router";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
+import { Mail } from "lucide-react";
 
 export default function Home() {
   const [searchParams] = useSearchParams();
+  const fetcher = useFetcher();
   const [email, setEmail] = useState("");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [previousQuestionIndex, setPreviousQuestionIndex] = useState(-1);
   const [isVisible, setIsVisible] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const isSubmitting = fetcher.state === "submitting";
+  const error = fetcher.data?.error;
+  const success = fetcher.data?.success;
 
   const questions = [
     "What if backend development didn't have to be hard?",
@@ -27,10 +35,13 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Waitlist signup:", email);
-  };
+  useEffect(() => {
+    if (success) {
+      setShowSuccess(true);
+      setEmail("");
+      setTimeout(() => setShowSuccess(false), 5000);
+    }
+  }, [success]);
 
   useEffect(() => {
     if (searchParams.get("focus") === "email") {
@@ -90,26 +101,48 @@ export default function Home() {
           </p>
 
           {/* Email Signup Form */}
-          <form
-            onSubmit={handleSubmit}
+          <fetcher.Form
+            method="post"
+            action="/api/waitlist"
             className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-12"
           >
-            <Input
-              id="email-input"
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground/60 focus:border-ring focus:ring-ring"
-              required
-            />
+            <div className="relative flex-1">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/60" />
+              <Input
+                id="email-input"
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="pl-10 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground/60 focus:border-ring focus:ring-ring"
+                required
+                disabled={isSubmitting}
+              />
+            </div>
             <Button
               type="submit"
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6"
+              disabled={isSubmitting}
             >
-              Join Waitlist
+              {isSubmitting ? "Joining..." : "Join Waitlist"}
             </Button>
-          </form>
+          </fetcher.Form>
+
+          {/* Success/Error Messages */}
+          {showSuccess && (
+            <div className="text-center mb-4 space-y-1">
+              <p className="text-lg font-bold text-success animate-in fade-in slide-in-from-bottom-2 duration-500">
+                You're on the list!
+              </p>
+              <p className="text-xs text-muted-foreground/80">
+                Check your email for confirmation
+              </p>
+            </div>
+          )}
+          {error && (
+            <p className="text-sm text-error text-center mb-4">{error}</p>
+          )}
 
           {/* Rotating Questions */}
           <div className="h-32 md:h-36 flex items-center justify-center relative">
