@@ -61,7 +61,10 @@ export default function Home() {
           }`}
         >
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
             <span className="block -ml-4 md:-ml-8 lg:-ml-36 bg-gradient-to-r from-stone-100 to-stone-300 bg-clip-text text-transparent">
               The last backend
             </span>
@@ -71,7 +74,10 @@ export default function Home() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl lg:text-3xl text-stone-400 mb-12">
+          <p
+            className="text-lg md:text-xl lg:text-3xl text-stone-400 mb-12"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
             AI-powered infrastructure that just works
           </p>
 
@@ -88,6 +94,7 @@ export default function Home() {
                       ? "opacity-30 -translate-y-8"
                       : "opacity-0 translate-y-12"
                   }`}
+                  style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   {question}
                 </span>
@@ -118,7 +125,10 @@ export default function Home() {
           </form>
 
           {/* Stealth Mode Notice */}
-          <p className="text-sm text-stone-500">
+          <p
+            className="text-sm text-stone-500"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
             Early access by invitation only
           </p>
         </div>
