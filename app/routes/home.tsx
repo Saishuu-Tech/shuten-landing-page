@@ -43,11 +43,11 @@ export default function Home() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950 text-stone-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-background text-foreground flex flex-col">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 px-6 py-6 md:px-12 md:py-8">
         <nav className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="text-xl md:text-2xl font-bold tracking-tight">
+          <div className="text-xl md:text-2xl font-bold text-primary tracking-tight">
             Shuten
           </div>
         </nav>
@@ -65,25 +65,55 @@ export default function Home() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            <span className="block -ml-4 md:-ml-8 lg:-ml-36 bg-gradient-to-r from-stone-100 to-stone-300 bg-clip-text text-transparent">
+            <span className="block -ml-4 md:-ml-8 lg:-ml-36 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               The last backend
             </span>
-            <span className="block ml-4 md:ml-8 lg:ml-48 bg-gradient-to-r from-stone-100 to-stone-300 bg-clip-text text-transparent">
+            <span className="block ml-4 md:ml-8 lg:ml-48 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               you'll ever need
             </span>
           </h1>
 
           {/* Subtitle */}
           <p
-            className="text-lg md:text-xl lg:text-3xl text-stone-400 mb-12"
+            className="text-lg md:text-xl lg:text-3xl text-muted-foreground mb-8 lg:mb-16"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             AI-powered infrastructure that just works
           </p>
 
+          {/* Stealth Mode Notice */}
+          <p
+            className="text-sm text-muted-foreground/70 mb-4 italic"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Early access by invitation only
+          </p>
+
+          {/* Email Signup Form */}
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-12"
+          >
+            <Input
+              id="email-input"
+              type="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 bg-muted/50 border-border text-foreground placeholder:text-muted-foreground/60 focus:border-ring focus:ring-ring"
+              required
+            />
+            <Button
+              type="submit"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6"
+            >
+              Join Waitlist
+            </Button>
+          </form>
+
           {/* Rotating Questions */}
-          <div className="h-32 md:h-36 mb-12 flex items-center justify-center relative">
-            <div className="text-base md:text-lg lg:text-xl text-stone-300 italic relative w-full">
+          <div className="h-32 md:h-36 flex items-center justify-center relative">
+            <div className="text-base md:text-lg lg:text-xl text-muted-foreground italic relative w-full">
               {questions.map((question, index) => (
                 <span
                   key={index}
@@ -101,53 +131,23 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          {/* Email Signup Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-8"
-          >
-            <Input
-              id="email-input"
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-stone-900/50 border-stone-800 text-stone-100 placeholder:text-stone-500 focus:border-stone-600 focus:ring-stone-600"
-              required
-            />
-            <Button
-              type="submit"
-              className="bg-stone-100 text-stone-900 hover:bg-stone-200 font-semibold px-6"
-            >
-              Join Waitlist
-            </Button>
-          </form>
-
-          {/* Stealth Mode Notice */}
-          <p
-            className="text-sm text-stone-500"
-            style={{ fontFamily: "Inter, sans-serif" }}
-          >
-            Early access by invitation only
-          </p>
         </div>
       </main>
 
       {/* Footer */}
       <footer className="px-6 py-6 md:px-12 md:py-8 text-center">
-        <p className="text-sm text-stone-500">
+        <p className="text-sm text-muted-foreground/70">
           A product of{" "}
           <a
             href="https://www.saishuu.ai"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-400 hover:text-stone-100 transition-colors underline"
+            className="text-muted-foreground hover:text-foreground transition-colors underline"
           >
             Saishuu Technologies
           </a>
         </p>
-        <p className="text-xs text-stone-600 mt-2">
+        <p className="text-xs text-muted-foreground/50 mt-2">
           © {new Date().getFullYear()} Saishuu Technologies. All rights
           reserved.
         </p>
