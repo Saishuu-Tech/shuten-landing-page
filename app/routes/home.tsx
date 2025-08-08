@@ -58,8 +58,19 @@ export default function Home() {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 px-6 py-6 md:px-12 md:py-8">
         <nav className="flex justify-between items-center max-w-7xl mx-auto">
-          <div className="text-xl md:text-2xl font-bold text-primary tracking-tight">
-            Shuten
+          <div className="text-xl md:text-2xl tracking-tight">
+            <a
+              href="https://www.saishuu.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-2 font-bold hover:text-muted-foreground transition-colors"
+            >
+              Saishuu
+            </a>
+            <span className="mr-2 select-none">|</span>
+            <span className="text-primary font-semibold select-none">
+              Shuten
+            </span>
           </div>
         </nav>
       </header>
