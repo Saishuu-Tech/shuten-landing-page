@@ -76,7 +76,7 @@ export default function Home() {
       </header>
 
       {/* Main Hero Section */}
-      <main className="flex-1 flex items-center justify-center px-6 py-20">
+      <main className="flex-1 flex md:items-center px-4 py-14 md:px-6 md:py-20">
         <div
           className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -84,28 +84,31 @@ export default function Home() {
         >
           {/* Main Headline */}
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            <span className="block -ml-4 md:-ml-8 lg:-ml-36 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="block text-left ml-1.5 md:text-center md:-ml-20 lg:-ml-36 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               The last backend
             </span>
-            <span className="block ml-4 md:ml-8 lg:ml-48 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <span className="block text-right mr-1.5 md:text-center md:ml-32 lg:ml-48 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               you'll ever need
             </span>
           </h1>
 
           {/* Subtitle */}
           <p
-            className="text-lg md:text-xl lg:text-3xl text-muted-foreground mb-8 lg:mb-16"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="text-muted-foreground mb-8 lg:mb-16 whitespace-nowrap px-2"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(0.875rem, 4.5vw, 1.875rem)",
+            }}
           >
             AI-powered infrastructure that just works
           </p>
 
           {/* Stealth Mode Notice */}
           <p
-            className="text-sm text-muted-foreground/70 mb-4 italic"
+            className="text-sm text-muted-foreground/70 mb-2 md:mb-4 italic"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Early access by invitation only
@@ -115,7 +118,7 @@ export default function Home() {
           <fetcher.Form
             method="post"
             action="/api/waitlist"
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-12"
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6 md:mb-12"
           >
             <div className="relative flex-1">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/60" />
@@ -156,7 +159,7 @@ export default function Home() {
           )}
 
           {/* Rotating Questions */}
-          <div className="h-32 md:h-36 flex items-center justify-center relative">
+          <div className="h-24 md:h-36 lg:h-36 flex items-center justify-center relative">
             <div className="text-base md:text-lg lg:text-xl text-muted-foreground italic relative w-full">
               {questions.map((question, index) => (
                 <span
