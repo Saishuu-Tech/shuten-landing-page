@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-background text-foreground flex flex-col">
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-10 px-6 py-6 md:px-12 md:py-8">
+      <header className="sticky top-0 left-0 right-0 z-10 px-6 py-6 md:px-12 md:py-8 bg-background/80 backdrop-blur-sm">
         <nav className="flex justify-between items-center max-w-7xl mx-auto">
           <div className="text-xl md:text-2xl tracking-tight">
             <a
