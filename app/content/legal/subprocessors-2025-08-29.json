@@ -1,0 +1,59 @@
+{
+  "effectiveDate": "August 29, 2025",
+  "description": "We engage the following subprocessors to help us provide the Service. Each subprocessor is subject to appropriate confidentiality, security, and data protection obligations.",
+  "subprocessors": [
+    {
+      "company": "Vercel",
+      "url": "https://vercel.com/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=vercel.com",
+      "purpose": "Hosting and deployment platform",
+      "location": "United States"
+    },
+    {
+      "company": "Fly.io",
+      "url": "https://fly.io/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=fly.io",
+      "purpose": "Cloud computing services",
+      "location": "United States"
+    },
+    {
+      "company": "Neon",
+      "url": "https://neon.com/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=neon.com",
+      "purpose": "Serverless database storage (Postgres)",
+      "location": "United States"
+    },
+    {
+      "company": "Stripe",
+      "url": "https://stripe.com/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=stripe.com",
+      "purpose": "Payment processing services",
+      "location": "United States"
+    },
+    {
+      "company": "Clerk",
+      "url": "https://clerk.com/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=clerk.com",
+      "purpose": "User authentication and management",
+      "location": "United States"
+    },
+    {
+      "company": "Cerebras",
+      "url": "https://cerebras.ai/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=cerebras.ai",
+      "purpose": "Generative AI model services",
+      "location": "United States"
+    },
+    {
+      "company": "Resend",
+      "url": "https://resend.com/",
+      "favicon": "https://www.google.com/s2/favicons?sz=32&domain_url=resend.com",
+      "purpose": "Transactional email communications",
+      "location": "United States"
+    }
+  ],
+  "notes": [
+    "Default data location is the United States. Some vendors operate globally; regional availability and replication may be enabled upon customer request and may incur additional fees.",
+    "We may update this list as our vendors or services evolve."
+  ]
+}

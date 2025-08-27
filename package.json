@@ -28,8 +28,12 @@
     "lucide-react": "^0.525.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
+    "react-markdown": "^10.1.0",
     "react-router": "^7.5.3",
     "react-router-dom": "^7.5.3",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
     "remix-themes": "^2.0.4",
     "resend": "^4.8.0",
     "tailwind-merge": "^3.3.1"
